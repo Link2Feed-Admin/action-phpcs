@@ -20,12 +20,13 @@ if [ "${INPUT_REPORTER}" == 'github-pr-review' ]; then
       ${INPUT_REVIEWDOG_FLAGS}
 else
   # github-pr-check,github-check (GitHub Check API) doesn't support markdown annotation.
-  phpcs --report=checkstyle ${INPUT_PHPCS_FLAGS:-'.'} \
-    | reviewdog -f="checkstyle" \
-      -name="${INPUT_TOOL_NAME}" \
-      -reporter="${INPUT_REPORTER:-github-pr-check}" \
-      -filter-mode="${INPUT_FILTER_MODE}" \
-      -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
-      -level="${INPUT_LEVEL}" \
-      ${INPUT_REVIEWDOG_FLAGS}
+  phpcs --report=checkstyle ${INPUT_PHPCS_FLAGS:-'.'} | head
+  # phpcs --report=checkstyle ${INPUT_PHPCS_FLAGS:-'.'} \
+  #   | reviewdog -f="checkstyle" \
+  #     -name="${INPUT_TOOL_NAME}" \
+  #     -reporter="${INPUT_REPORTER:-github-pr-check}" \
+  #     -filter-mode="${INPUT_FILTER_MODE}" \
+  #     -fail-on-error="${INPUT_FAIL_ON_ERROR}" \
+  #     -level="${INPUT_LEVEL}" \
+  #     ${INPUT_REVIEWDOG_FLAGS}
 fi
