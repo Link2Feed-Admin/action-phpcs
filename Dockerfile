@@ -15,10 +15,10 @@ RUN composer global config --no-plugins allow-plugins.dealerdirect/phpcodesniffe
 # Install phpcs
 RUN composer global require --dev \
     "squizlabs/php_codesniffer" \
-    "dealerdirect/phpcodesniffer-composer-installer" \
-    "object-calisthenics/phpcs-calisthenics-rules" \
-    "phpcompatibility/php-compatibility" \
-    "wp-coding-standards/wpcs"
+    "dealerdirect/phpcodesniffer-composer-installer" #\
+#    "object-calisthenics/phpcs-calisthenics-rules" \
+#    "phpcompatibility/php-compatibility" \
+#    "wp-coding-standards/wpcs"
 
 ENV PATH $PATH:$COMPOSER_HOME/vendor/bin
 
